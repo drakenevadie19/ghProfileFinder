@@ -1,2 +1,2 @@
-# GHProfileFinder
+# ghProfileFinder
 GitHub Profile Finder
