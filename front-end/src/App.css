@@ -1,9 +1,6 @@
 .App {
   text-align: center;
-}
-
-h1,h2 {
-  color: white;
+  color: azure;
 }
 
 .start-page {
@@ -20,6 +17,7 @@ h1,h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  color: black;
 }
 
 .find-box {
@@ -39,4 +37,5 @@ h1,h2 {
   display: flex;
   flex-direction: column;
   align-items: start;
+  gap: 10px;
 }
