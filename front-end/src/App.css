@@ -24,6 +24,7 @@
   width: 40%;
   height: 15%;
   border-radius: 20px;
+  padding: 1em;
   border: 2px black solid;
   background-color: azure;
 }
@@ -33,6 +34,21 @@
   border: 2px blue dotted;
 }
 
+@media only screen and (max-width: 992px) {
+  .find-box-frame {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .find-box {
+    width: max-content;
+    padding: 1em;
+  }
+}
+
+/*------------------------------------------------------------------------------*/
+/* Individual page */
 .find-frame {
   display: flex;
   flex-direction: column;
