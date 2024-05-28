@@ -5,6 +5,8 @@ import StartPage from './pages/start-page';
 import FindByUserName from './pages/find-by-username';
 import FindByName from './pages/find-by-name';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   return (
     <BrowserRouter>
