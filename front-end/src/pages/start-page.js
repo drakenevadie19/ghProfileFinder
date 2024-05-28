@@ -6,11 +6,11 @@ const StartPage = () => {
         <>
             <div className="start-page">
                 <div className="find-box" onClick={() => navigate('/find/username')}>
-                    <h1>Find corresponding by users' Github username</h1>
+                    <h3>Finding by Github username</h3>
                 </div>
 
                 <div className="find-box" onClick={() => navigate('/find/name')}>
-                    <h1>Find corresponding by first/last name of users</h1>
+                    <h3>Finding by users' name</h3>
                 </div>
             </div>
         </>
