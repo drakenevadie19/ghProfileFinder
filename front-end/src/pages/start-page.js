@@ -5,12 +5,15 @@ const StartPage = () => {
     return (
         <>
             <div className="start-page">
-                <div className="find-box" onClick={() => navigate('/find/username')}>
-                    <h3>Finding by Github username</h3>
-                </div>
+                <h1>Want to find Github profile?</h1>
+                <div className="find-box-frame">
+                    <div className="find-box" onClick={() => navigate('/find/username')}>
+                        <h3>Finding by Github username</h3>
+                    </div>
 
-                <div className="find-box" onClick={() => navigate('/find/name')}>
-                    <h3>Finding by users' name</h3>
+                    <div className="find-box" onClick={() => navigate('/find/name')}>
+                        <h3>Finding by users' name</h3>
+                    </div>
                 </div>
             </div>
         </>

@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  padding: 4rem;
+}
+
+h1,h2 {
+  color: white;
 }
 
 .start-page {
@@ -8,6 +11,13 @@
   width: 100%;
   height: 100%;
 
+  flex-direction: column;
+  align-items: center;
+}
+
+.find-box-frame {
+  width: 100%;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
@@ -17,8 +27,16 @@
   height: 15%;
   border-radius: 20px;
   border: 2px black solid;
+  background-color: azure;
 }
 
 .find-box:hover {
+  background-color: lavender;
   border: 2px blue dotted;
+}
+
+.find-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }

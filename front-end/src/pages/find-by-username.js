@@ -4,14 +4,17 @@ const FindByUserName = () => {
   const navigate = useNavigate();
   return (
     <>
-      <button
-        type="button"
-        className="btn btn-success"
-        onClick={() => navigate("/")}
-      >
-        Back to Home
-      </button>
-      <h1>Find By username</h1>
+        <div className="find-frame">
+            <button
+                type="button"
+                className="btn btn-success"
+                onClick={() => navigate("/")}
+            >
+                Back to Home
+            </button>
+            <h2>Type in Github username you want to find to search:</h2>
+            
+        </div>
     </>
   );
 };
