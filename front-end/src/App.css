@@ -83,7 +83,6 @@
 
 .display-profiles {
   color: black;
-  padding: 1em;
 
   display: grid;
   grid-template-columns: 30% 30% 30%;
@@ -93,4 +92,9 @@
 
 .card {
   width: 18rem;
+}
+
+.display-profiles-frame {
+  padding: 1em;
+  color: black;
 }
