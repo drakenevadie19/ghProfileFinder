@@ -13,9 +13,9 @@ const FindByUserName = () => {
     const aboveDivRef = useRef(null);
 
     const handleSearch = async () => {
-        // alert(usernameQuery);
         setLoading(true);
         setError('');
+
         try {
             const response = await axios.get('https://api.github.com/search/users', {
                 params: { q: usernameQuery },
@@ -26,13 +26,6 @@ const FindByUserName = () => {
             setError('Failed to fetch profiles');
         } finally {
             setLoading(false);
-        }
-
-        if (profiles.length > 0) {
-            // alert("Successfull");
-            console.log(profiles);
-        } else {
-            // alert("fail");
         }
     };
 

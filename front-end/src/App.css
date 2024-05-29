@@ -78,16 +78,17 @@
 .profiles-display {
   background-color: azure;
   border-radius: 10px;
+  overflow-y: scroll;
 }
 
 .display-profiles {
   color: black;
   padding: 1em;
 
-  /* display: inline-block; */
-  /* flex-direction: row; */
-  /* grid-template-columns: 30% 30% 30%; */
-  /* overflow-y: scroll; */
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 5%;
+  row-gap: 1%;
 }
 
 .card {

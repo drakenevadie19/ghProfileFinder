@@ -10,7 +10,7 @@ const ProfileList = ({ profiles }) => {
                             <div class="card-body">
                                 <h5 class="card-title">{github.login}</h5>
                                 {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                                <a href={github.html_url} class="btn btn-primary">View Profile</a>
+                                <a href={github.html_url} class="btn btn-primary" target="_blank" rel="noreferrer">View Profile</a>
                             </div>
                         </div>
                     ))
