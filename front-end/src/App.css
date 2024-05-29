@@ -80,7 +80,7 @@
   border-radius: 10px;
   overflow-y: scroll;
   color: black;
-  
+
   padding: 1em;
 }
 
@@ -93,10 +93,20 @@
   row-gap: 1%;
 }
 
-.card {
-  width: 18rem;
-}
-
 .display-profiles-frame {
   color: black;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px) {
+  .display-profiles {
+    grid-template-columns: 45% 45%;
+    column-gap: 10%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .display-profiles {
+    grid-template-columns: 100%;
+  }
 }
