@@ -6,7 +6,6 @@ import ProfileList from "../components/profile-list";
 const FindByUserName = () => {
     const [usernameQuery, setUsernameQuery] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
     const [profiles, setProfiles] = useState([]);
 
     const [aboveDivHeight, setAboveDivHeight] = useState(0);
@@ -14,7 +13,6 @@ const FindByUserName = () => {
 
     const handleSearch = async () => {
         setLoading(true);
-        setError('');
 
         try {
             const response = await axios.get('https://api.github.com/search/users', {
@@ -23,7 +21,7 @@ const FindByUserName = () => {
             });
             setProfiles(response.data.items);
         } catch (err) {
-            setError('Failed to fetch profiles');
+            console.log(err);
         } finally {
             setLoading(false);
         }
@@ -100,7 +98,11 @@ const FindByUserName = () => {
         </div>
 
         <div className="profiles-display" id="belowDiv" style={{ ...belowDivStyle }}>
-            <ProfileList profiles={profiles} />
+            {
+                loading
+                ? <h4>Loading...</h4>
+                :<ProfileList profiles={profiles} />
+            }
         </div>
     </>
     );

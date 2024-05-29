@@ -79,6 +79,9 @@
   background-color: azure;
   border-radius: 10px;
   overflow-y: scroll;
+  color: black;
+  
+  padding: 1em;
 }
 
 .display-profiles {
@@ -95,6 +98,5 @@
 }
 
 .display-profiles-frame {
-  padding: 1em;
   color: black;
 }
