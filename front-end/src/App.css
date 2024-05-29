@@ -67,6 +67,12 @@
   margin-bottom: 20px;
 }
 
+.navigation-buttons-group {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
 /*------------------------------------------------------------------------------*/
 /* Profile Display */
 .profiles-display {
@@ -76,4 +82,14 @@
 
 .display-profiles {
   color: black;
+  padding: 1em;
+
+  /* display: inline-block; */
+  /* flex-direction: row; */
+  /* grid-template-columns: 30% 30% 30%; */
+  /* overflow-y: scroll; */
+}
+
+.card {
+  width: 18rem;
 }

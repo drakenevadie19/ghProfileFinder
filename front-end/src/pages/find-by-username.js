@@ -13,7 +13,7 @@ const FindByUserName = () => {
     const aboveDivRef = useRef(null);
 
     const handleSearch = async () => {
-        alert(usernameQuery);
+        // alert(usernameQuery);
         setLoading(true);
         setError('');
         try {
@@ -26,6 +26,13 @@ const FindByUserName = () => {
             setError('Failed to fetch profiles');
         } finally {
             setLoading(false);
+        }
+
+        if (profiles.length > 0) {
+            // alert("Successfull");
+            console.log(profiles);
+        } else {
+            // alert("fail");
         }
     };
 
@@ -51,19 +58,36 @@ const FindByUserName = () => {
     return (
     <>
         <div className="find-frame" id="aboveDiv" ref={aboveDivRef}>
-            <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => navigate("/")}
-            >
-                Back to Home
-            </button>
+            <div className="navigation-buttons-group">
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => navigate("/")}
+                >
+                    Back to Home
+                </button>
+                {profiles.length>0 &&
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={() => {
+                            setProfiles([]);
+                            setUsernameQuery("")
+                        }}
+                    >
+                        Clear
+                    </button>
+                }
+            </div>
+            
+            
             <h2>Type in Github username you want to find to search:</h2>
 
             <div class="input-group mb-3">
                 <input
                 type="text"
                 class="form-control"
+                value={usernameQuery}
                 placeholder="E.g: drakenevadie19"
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
@@ -83,7 +107,7 @@ const FindByUserName = () => {
         </div>
 
         <div className="profiles-display" id="belowDiv" style={{ ...belowDivStyle }}>
-            <ProfileList />
+            <ProfileList profiles={profiles} />
         </div>
     </>
     );
