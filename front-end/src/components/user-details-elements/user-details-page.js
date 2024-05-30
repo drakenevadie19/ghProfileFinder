@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 
-const UserDetails = () => {
+const UserDetailsPage = () => {
     // Link: http://localhost:3000/user-detail/drakene (:username = param)
-    // => Get param from link
+    // => Get param from link => username = drakene
     const { username } = useParams();
 
     return (
@@ -10,4 +10,4 @@ const UserDetails = () => {
     )
 }
 
-export default UserDetails;
+export default UserDetailsPage;
