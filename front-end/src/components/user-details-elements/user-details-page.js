@@ -40,7 +40,7 @@ const UserDetailsPage = () => {
             }
         }
         getElements();
-    })
+    }, [])
 
     return (
         <>
