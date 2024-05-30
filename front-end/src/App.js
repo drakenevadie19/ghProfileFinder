@@ -6,6 +6,7 @@ import FindByUserName from './pages/find-by-username';
 import FindByName from './pages/find-by-name';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserDetails from './components/user-details';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="username" element={<FindByUserName />} />
             <Route path="name" element={<FindByName />} />
           </Route>
+          <Route path='user-detail/:username' element={<UserDetails />} />
         </Routes>
       </div>
     </BrowserRouter>

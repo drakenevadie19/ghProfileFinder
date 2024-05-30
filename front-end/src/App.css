@@ -55,7 +55,7 @@
 }
 
 /*------------------------------------------------------------------------------*/
-/* Individual page */
+/* Individual pages */
 /* .find-page {
   display: flex;
   flex-direction: column;
@@ -101,12 +101,29 @@
   color: black;
 }
 
+.card-button-groups {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.explore-button {
+  height: max-content;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
 
   .display-profiles {
     grid-template-columns: 45% 45%;
     column-gap: 10%;
+  }
+
+  .card-button-groups {
+    flex-direction: column;
   }
 }
 

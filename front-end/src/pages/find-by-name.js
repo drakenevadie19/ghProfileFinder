@@ -46,7 +46,7 @@ const FindByName = () => {
             setLoading(false);
         }
     }
-    // console.log(profiles);
+    console.log(profiles);
 
     return (
     <>
