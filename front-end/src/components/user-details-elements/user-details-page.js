@@ -20,19 +20,16 @@ const UserDetailsPage = () => {
             try {
                 // Get user's followers list and save to userFollowers array
                 const response1 = await axios.get(`https://api.github.com/users/${username}/followers`);
-                console.log(response1);
-                setUserFollowers(response1.data);
+                if (response1.status === 200) setUserFollowers(response1.data);
+                
 
                 // Get user's follwing list and save to userFollowers array
                 const response2 = await axios.get(`https://api.github.com/users/${username}/following`);
-                console.log(response2);
-                setUserFollowing(response2.data);
+                if (response1.status === 200) setUserFollowing(response2.data);
 
                 // Get user's repos list and save to userRepos array
-                // Get user's follwing list and save to userFollowers array
                 const response3 = await axios.get(`https://api.github.com/users/${username}/repos`);
-                console.log(response3);
-                setUserRepos(response3.data);
+                if (response1.status === 200) setUserRepos(response3.data);
             } catch (error) {
                 console.log(error);
             } finally {
@@ -40,13 +37,17 @@ const UserDetailsPage = () => {
             }
         }
         getElements();
-    }, [])
+    }, []);
+
+    console.log(userFollowers);
+    console.log(userFollowing);
+    console.log(userRepos);
 
     return (
         <>
             {
-                loading 
-                ? <h1> Done fetching </h1>
+                !loading 
+                ? <h1>Done fetching</h1>
                 : <h1>Fail fetching</h1>
             }
         </>
