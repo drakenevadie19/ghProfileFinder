@@ -26,7 +26,6 @@ const FindByUserName = () => {
             setLoading(false);
         }
     };
-    console.log(profiles);
 
     const navigate = useNavigate();
 

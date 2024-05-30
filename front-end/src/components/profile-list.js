@@ -22,14 +22,8 @@ const ProfileList = ({ profiles }) => {
                         <h5 class="card-title">{github.login}</h5>
                         {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
                         <div className="card-button-groups">
-                            <a
-                            href={github.html_url}
-                            class="btn btn-primary explore-button"
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={() => moveToUserDetail(key)}
-                            >
-                            Explore
+                            <a href="#" class="btn btn-primary explore-button" onClick={() => moveToUserDetail(key)}>
+                                Explore
                             </a>
                             <a
                             href={github.html_url}
@@ -37,7 +31,7 @@ const ProfileList = ({ profiles }) => {
                             target="_blank"
                             rel="noreferrer"
                             >
-                            Go to Github
+                                Go to Github
                             </a>
                         </div>
                         </div>
