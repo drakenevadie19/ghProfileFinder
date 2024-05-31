@@ -50,7 +50,7 @@ const FindByName = () => {
     return (
     <>
         <div className="find-frame" id="aboveDiv" ref={aboveDivRef}>
-        <div className="navigation-buttons-group">
+            <div className="navigation-buttons-group">
                 <button
                     type="button"
                     className="btn btn-primary"

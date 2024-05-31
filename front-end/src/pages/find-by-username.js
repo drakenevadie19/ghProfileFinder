@@ -27,6 +27,8 @@ const FindByUserName = () => {
         }
     };
 
+    // console.log(profiles);
+
     const navigate = useNavigate();
 
     const updateHeight = () => {

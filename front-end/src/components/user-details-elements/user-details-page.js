@@ -1,27 +1,34 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UserDetailsPage = () => {
     // Link: http://localhost:3000/user-detail/drakene (:username = param)
     // => Get param from link => username = drakene
     const { username } = useParams();
 
+    const [userProfile, setUserProfile] = useState({});
     const [userFollowers, setUserFollowers] = useState([]);
     const [userFollowing, setUserFollowing] = useState([]);
     const [userRepos, setUserRepos] = useState([]);
 
     const [loading, setLoading] = useState(false);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         async function getElements() {
             setLoading(true);
             
             try {
+                // Get user's profile for displaying
+                const response0 = await axios.get(`https://api.github.com/users/${username}`);
+                // console.log(response0);  
+                if (response0.status === 200) setUserProfile(response0.data);
+
                 // Get user's followers list and save to userFollowers array
                 const response1 = await axios.get(`https://api.github.com/users/${username}/followers`);
                 if (response1.status === 200) setUserFollowers(response1.data);
-                
 
                 // Get user's follwing list and save to userFollowers array
                 const response2 = await axios.get(`https://api.github.com/users/${username}/following`);
@@ -39,17 +46,91 @@ const UserDetailsPage = () => {
         getElements();
     }, []);
 
+    console.log(userProfile);
     console.log(userFollowers);
     console.log(userFollowing);
     console.log(userRepos);
 
+    if (loading) {
+        return (
+            <h1>Loading...</h1>
+        )
+    }
+    
     return (
         <>
-            {
-                !loading 
-                ? <h1>Done fetching</h1>
-                : <h1>Fail fetching</h1>
-            }
+            <div className="find-frame" id="aboveDiv">
+                <div className="navigation-buttons-group">
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={() => navigate("/")}
+                    >
+                        Back to Home
+                    </button>
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={() => navigate(window.history.previous)}
+                    >
+                        Previous Page
+                    </button>
+                </div>
+
+                <div className="user-detail-headline-wrap">
+                    {/* Bio-headline */}
+                    <div className="user-detail-headline">
+                        {/* Bio-image */}
+                        <div className="user-detail-headline-image-wrap">
+                            <img className="user-detail-headline-image" src={userProfile.avatar_url} alt="profile" />
+                        </div>
+
+                        {/* Bio-details */}
+                        <div className="user-detail-headline-info-wrap">
+                            <h1><strong><i>{userProfile.login}</i></strong></h1>
+                            {
+                                userProfile.name  &&
+                                <h3>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                                        </svg>
+                                    </span>
+                                    {userProfile.name}
+                                </h3>
+                            }
+                            <div className="user-detail-headline-bio-location-wrap">
+                                {
+                                    userProfile.location  &&
+                                    <h4>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                                            </svg>
+                                        </span>
+                                        {userProfile.location}
+                                    </h4>
+                                }
+
+                                {
+                                    userProfile.company  &&
+                                    <h4>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                                                <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+                                                <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"/>
+                                            </svg>
+                                        </span>
+                                        {userProfile.company}
+                                    </h4>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div></div>
+            </div>
         </>
     )
 }

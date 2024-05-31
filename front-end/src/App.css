@@ -66,7 +66,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 10px;
+  gap: 15px;
 
   margin-bottom: 20px;
 }
@@ -135,4 +135,38 @@
   .display-profiles {
     grid-template-columns: 100%;
   }
+}
+
+/*------------------------------------------------------------------------------*/
+/* User detail page */
+.user-detail-headline {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: left;
+}
+
+.user-detail-headline-image {
+  width: 40%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+}
+
+.user-detail-headline-info-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.user-detail-headline-bio-location-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.user-detail-headline-bio-location-wrap h3 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
