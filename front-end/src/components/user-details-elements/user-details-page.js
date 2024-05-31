@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UserDetailsPage = () => {
@@ -13,6 +13,9 @@ const UserDetailsPage = () => {
     const [userRepos, setUserRepos] = useState([]);
 
     const [loading, setLoading] = useState(false);
+
+    const [aboveDivHeight, setAboveDivHeight] = useState(0);
+    const aboveDivRef = useRef(null);
 
     const navigate = useNavigate();
 
@@ -51,15 +54,33 @@ const UserDetailsPage = () => {
     console.log(userFollowing);
     console.log(userRepos);
 
+    // setting dynamically height of profiles displaying div
+    const updateHeight = () => {
+        const height = aboveDivRef.current.offsetHeight;
+        setAboveDivHeight(height);
+    };
+    
+    useEffect(() => {
+        updateHeight();
+        window.addEventListener('resize', updateHeight);
+        return () => {
+            window.removeEventListener('resize', updateHeight);
+        };
+    }, []);
+
+    const belowDivStyle = {
+        height: `calc(100% - ${aboveDivHeight}px)`,
+    };
+
     if (loading) {
         return (
             <h1>Loading...</h1>
         )
     }
-    
+
     return (
         <>
-            <div className="find-frame" id="aboveDiv">
+            <div className="find-frame" id="aboveDiv" ref={aboveDivRef}>
                 <div className="navigation-buttons-group">
                     <button
                         type="button"
@@ -87,7 +108,16 @@ const UserDetailsPage = () => {
 
                         {/* Bio-details */}
                         <div className="user-detail-headline-info-wrap">
-                            <h1><strong><i>{userProfile.login}</i></strong></h1>
+                            <div className="user-detail-headline">
+                                <h1><strong><i>{userProfile.login}</i></strong></h1>
+                                <a href={userProfile.html_url} target="_blank" rel="noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            
                             {
                                 userProfile.name  &&
                                 <h3>
@@ -128,8 +158,14 @@ const UserDetailsPage = () => {
                         </div>
                     </div>
                 </div>
-                
-                <div></div>
+            </div>
+
+            <div className="user-detail-repos-follower-following-wrap" id="belowDiv" style={{ ...belowDivStyle }}>
+                <div className="user-detail-r-f--navbar">
+                    <div><h3>Repositories</h3> <h4><strong>{userProfile.public_repos}</strong></h4></div> |
+                    <div><h3>Followers</h3> <h4><strong>{userProfile.followers}</strong></h4></div> |
+                    <div><h3>Following</h3> <h4><strong>{userProfile.following}</strong></h4></div>
+                </div>
             </div>
         </>
     )

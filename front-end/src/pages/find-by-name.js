@@ -15,7 +15,7 @@ const FindByName = () => {
 
     // setting dynamically height of profiles displaying div
     const updateHeight = () => {
-    const height = aboveDivRef.current.offsetHeight;
+        const height = aboveDivRef.current.offsetHeight;
         setAboveDivHeight(height);
     };
 
