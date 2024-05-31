@@ -55,10 +55,10 @@ const UserDetailsPage = () => {
         getElements();
     }, []);
 
-    console.log(userProfile);
-    console.log(userFollowers);
-    console.log(userFollowing);
-    console.log(userRepos);
+    // console.log(userProfile);
+    // console.log(userFollowers);
+    // console.log(userFollowing);
+    // console.log(userRepos);
 
     // setting dynamically height of profiles displaying div
     const updateHeight = () => {
@@ -179,12 +179,12 @@ const UserDetailsPage = () => {
 
 {
                         currentDisplaying === "Follower" && 
-                        <UserDetailsFollowers repos={userRepos} />
+                        <UserDetailsFollowers followers={userFollowers} />
                     }
 
 {
                         currentDisplaying === "Following" && 
-                        <UserDetailsFollowing repos={userRepos} />
+                        <UserDetailsFollowing following={userFollowing} />
                     }
                 </div>
             </div>
