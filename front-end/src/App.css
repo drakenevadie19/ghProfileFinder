@@ -192,3 +192,11 @@
   flex-direction: row;
   gap: 10px;
 }
+
+.user-detail-r-f--navbar-tab:hover {
+  color: purple;
+}
+
+.user-detail-r-f--display {
+  overflow-y: scroll;
+}

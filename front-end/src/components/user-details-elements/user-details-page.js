@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import UserDetailsRepos from "./user-details-repos";
+import UserDetailsFollowers from "./user-details-followers";
+import UserDetailsFollowing from "./user-details-following";
 
 const UserDetailsPage = () => {
     // Link: http://localhost:3000/user-detail/drakene (:username = param)
@@ -11,6 +14,8 @@ const UserDetailsPage = () => {
     const [userFollowers, setUserFollowers] = useState([]);
     const [userFollowing, setUserFollowing] = useState([]);
     const [userRepos, setUserRepos] = useState([]);
+
+    const [currentDisplaying, setCurrentDisplaying] = useState("");
 
     const [loading, setLoading] = useState(false);
 
@@ -162,9 +167,25 @@ const UserDetailsPage = () => {
 
             <div className="user-detail-repos-follower-following-wrap" id="belowDiv" style={{ ...belowDivStyle }}>
                 <div className="user-detail-r-f--navbar">
-                    <div><h3>Repositories</h3> <h4><strong>{userProfile.public_repos}</strong></h4></div> |
-                    <div><h3>Followers</h3> <h4><strong>{userProfile.followers}</strong></h4></div> |
-                    <div><h3>Following</h3> <h4><strong>{userProfile.following}</strong></h4></div>
+                    <div className="user-detail-r-f--navbar-tab" onClick={() => setCurrentDisplaying("Repo")}><h3>Repositories</h3> <h4><strong>{userProfile.public_repos}</strong></h4></div> |
+                    <div className="user-detail-r-f--navbar-tab" onClick={() => setCurrentDisplaying("Follower")}><h3>Followers</h3> <h4><strong>{userProfile.followers}</strong></h4></div> |
+                    <div className="user-detail-r-f--navbar-tab" onClick={() => setCurrentDisplaying("Following")}><h3>Following</h3> <h4><strong>{userProfile.following}</strong></h4></div>
+                </div>
+                <div  className="user-detail-r-f--display">
+                    {
+                        currentDisplaying === "Repo" && 
+                        <UserDetailsRepos repos={userRepos} />
+                    }
+
+{
+                        currentDisplaying === "Follower" && 
+                        <UserDetailsFollowers repos={userRepos} />
+                    }
+
+{
+                        currentDisplaying === "Following" && 
+                        <UserDetailsFollowing repos={userRepos} />
+                    }
                 </div>
             </div>
         </>
