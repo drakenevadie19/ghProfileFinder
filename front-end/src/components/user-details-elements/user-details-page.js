@@ -25,6 +25,7 @@ const UserDetailsPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        setCurrentDisplaying("Repo");
         async function getElements() {
             setLoading(true);
             
@@ -94,13 +95,12 @@ const UserDetailsPage = () => {
                     >
                         Back to Home
                     </button>
-                    <button
-                        type="button"
+                    <a
                         className="btn btn-primary"
-                        onClick={() => navigate(window.history.previous)}
+                        href={document.referrer}
                     >
                         Previous Page
-                    </button>
+                    </a>
                 </div>
 
                 <div className="user-detail-headline-wrap">
