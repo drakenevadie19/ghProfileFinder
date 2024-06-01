@@ -103,7 +103,7 @@ const FindByUserName = () => {
             {
                 loading
                 ? <h4>Loading...</h4>
-                :<ProfileList profiles={profiles} />
+                : <ProfileList profiles={profiles} />
             }
         </div>
     </>
