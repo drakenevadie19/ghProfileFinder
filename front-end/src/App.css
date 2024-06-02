@@ -227,6 +227,10 @@
   padding-top: 0.5em;
 }
 
+.fork-badge {
+  transform: rotateZ(180deg);
+}
+
 @media only screen and (max-width: 768px) {
   .user-detail-headline-image {
     width: 25%;
