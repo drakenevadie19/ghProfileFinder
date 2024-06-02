@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import UserDetailsRepos from "./user-details-repos";
 import UserDetailsFollowers from "./user-details-followers";
 import UserDetailsFollowing from "./user-details-following";
-import ProfileList from "../profile-list";
 
 const UserDetailsPage = () => {
     // Link: http://localhost:3000/user-detail/drakene (:username = param)
