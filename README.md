@@ -1,6 +1,6 @@
-# GitHub Profile Finder
+# DevLookUp
 Demo: 
-![alt text](image.png)
+![alt text](devlookup.png)
 
 Techstack: 
 - Frontend: React, HTML, CSS, Bootstrap 5, Axios
