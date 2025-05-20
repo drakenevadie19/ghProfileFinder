@@ -41,6 +41,28 @@
   border: 2px blue dotted;
 }
 
+.advantage-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.advantage-list {
+  /* background-color: red; */
+  padding-left: 2%;
+  width: max-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slogan {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
 @media only screen and (max-width: 992px) {
   .find-box-frame {
     flex-direction: column;
@@ -51,6 +73,9 @@
   .find-box {
     width: 100%;
     padding: 0.5em;
+  }
+  .advantage-list {
+    padding: 0;
   }
 }
 

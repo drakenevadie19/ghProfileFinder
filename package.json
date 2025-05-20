@@ -1,5 +1,5 @@
 {
-  "name": "ghprofilefinder",
+  "name": "devlookup",
   "version": "1.0.0",
   "description": "Demo:  ![alt text](image.png)",
   "main": "/front-end/src/index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drakenevadie19/ghProfileFinder.git"
+    "url": "git+https://github.com/drakenevadie19/devlookup.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/drakenevadie19/ghProfileFinder/issues"
+    "url": "https://github.com/drakenevadie19/devlookup/issues"
   },
-  "homepage": "https://github.com/drakenevadie19/ghProfileFinder#readme",
+  "homepage": "https://github.com/drakenevadie19/devlookup#readme",
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
