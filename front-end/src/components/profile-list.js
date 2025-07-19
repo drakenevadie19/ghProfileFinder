@@ -22,12 +22,12 @@ const ProfileList = ({ profiles }) => {
                                         <h5 class="card-title">{github.login}</h5>
                                         {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
                                         <div className="card-button-groups">
-                                            <a class="btn btn-primary explore-button" onClick={() => navigate(`/user-detail/${github.login}`)}>
+                                            <button class="btn btn-info explore-button" onClick={() => navigate(`/user-detail/${github.login}`)}>
                                                 Explore
-                                            </a>
+                                            </button>
                                             <a
                                             href={github.html_url}
-                                            class="btn btn-primary"
+                                            class="btn btn-warning"
                                             target="_blank"
                                             rel="noreferrer"
                                             >

@@ -61,7 +61,7 @@ const FindByName = () => {
                 {profiles.length>0 &&
                     <button
                         type="button"
-                        className="btn btn-primary"
+                        className="btn btn-danger"
                         onClick={() => {
                             setProfiles([]);
                             setNameQuery("")
@@ -84,7 +84,7 @@ const FindByName = () => {
                 onChange={(e) => setNameQuery(e.target.value)}
                 />
                 <button 
-                class="btn btn-primary" 
+                class="btn btn-success" 
                 type="button" 
                 id="button-addon2"
                 onClick={() => handleSearch()}

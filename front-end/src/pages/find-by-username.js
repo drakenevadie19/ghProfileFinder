@@ -62,7 +62,7 @@ const FindByUserName = () => {
                 {profiles.length>0 &&
                     <button
                         type="button"
-                        className="btn btn-primary"
+                        className="btn btn-danger"
                         onClick={() => {
                             setProfiles([]);
                             setUsernameQuery("")
@@ -88,7 +88,7 @@ const FindByUserName = () => {
                 />
                 
                 <button 
-                class="btn btn-primary" 
+                class="btn btn-success" 
                 type="button" 
                 id="button-addon2"
                 onClick={() => handleSearch()}

@@ -6,10 +6,11 @@ const StartPage = () => {
         <>
             <div className="start-page">
                 <section style={{
-                    padding: "2rem",
+                    padding: "2rem 0",
                     fontFamily: "Arial, sans-serif",
                     fontSize: "1.25rem", // ~20px
-                    lineHeight: "1.6"
+                    lineHeight: "1.6",
+                    width: "100%"
                 }}>
                     <h1 style={{ fontSize: "2rem", fontWeight: 800 }}>🔍 DevLookUp</h1>
                     <p>
