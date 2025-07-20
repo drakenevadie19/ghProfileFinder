@@ -14,7 +14,7 @@ const StartPage = () => {
                 }}>
                     <h1 style={{ fontSize: "2rem", fontWeight: 800 }}>🔍 DevLookUp</h1>
                     <p>
-                        <strong>Easily explore GitHub profiles by username.</strong>
+                        <strong>Easily explore GitHub profiles by username. </strong>
                         Just enter a GitHub username to instantly view public profile details including bio, repositories, followers, and more — all powered by the GitHub API.
                     </p>
 
