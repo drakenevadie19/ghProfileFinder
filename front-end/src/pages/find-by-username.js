@@ -76,10 +76,10 @@ const FindByUserName = () => {
             
             <h2>Type in Github username you want to find to search:</h2>
 
-            <div class="input-group mb-3">
+            <div className="input-group mb-3">
                 <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 value={usernameQuery}
                 placeholder="E.g: drakenevadie19"
                 aria-label="Recipient's username"
@@ -88,7 +88,7 @@ const FindByUserName = () => {
                 />
                 
                 <button 
-                class="btn btn-success" 
+                className="btn btn-success" 
                 type="button" 
                 id="button-addon2"
                 onClick={() => handleSearch()}

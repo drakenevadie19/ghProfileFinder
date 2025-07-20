@@ -126,6 +126,10 @@
   color: black;
 }
 
+/* .repo-img {
+  width: 30%;
+} */
+
 .display-profiles {
   color: black;
 
@@ -181,7 +185,7 @@
 }
 
 .user-detail-headline-image {
-  width: 30%;
+  width: 50%;
   aspect-ratio: 1/1;
   border-radius: 10px;
 }
@@ -214,7 +218,6 @@
 .user-detail-repos-follower-following-wrap {
   background-color: azure;
   border-radius: 10px;
-  padding: 1rem 2rem;
   color: black;
 
   position: relative;
@@ -231,13 +234,30 @@
   border-bottom: 2px black solid;
 
   position: static;
+  padding: 0.75em 2%;
+}
+
+.u-d-name--active {
+  color: magenta;
+  font-weight: bold;
+}
+
+.u-d-number--active {
+  color: white;
+  background-color: magenta;
+  font-weight: bold;
+  padding: 2%;
+  border-radius: 20%;
 }
 
 .user-detail-r-f--navbar div {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  padding: 0 1rem;
+  justify-content: center;
+  gap: 5%;
+  padding: 0 1em;
+
+  max-width: 32%;
 }
 
 /* .user-detail-r-f--navbar div:not(:last-child) {
@@ -245,20 +265,31 @@
 } */
 
 .user-detail-r-f--navbar-tab:hover {
-  color: purple;
+  color: blue;
 }
 
 .user-detail-r-f--navbar-tab-name {
-  font-size: 1.15rem;
+  font-size: 115%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-detail-r-f--navbar-tab-number {
-  font-size: 1.20rem;
+  font-size: 110%;
+  /* background-color: red; */
+  margin: 0;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-detail-r-f--display {
   /* overflow-y: scroll; */
-  padding-top: 0.5em;
+  /* padding-top: 0.5em; */
+  padding: 1rem 2rem;
 }
 
 .fork-badge {
@@ -267,7 +298,7 @@
 
 @media only screen and (max-width: 768px) {
   .user-detail-headline-image {
-    width: 25%;
+    width: 70%;
   }
 
   .username {
@@ -286,6 +317,17 @@
     padding: 0 0.25rem;
   }
   
+  .user-detail-r-f--navbar-tab, .u-active {
+    width: 30%;
+  }
+
+  .user-detail-r-f--navbar-tab-name {
+    font-size: 95%;
+  }
+
+  .user-detail-r-f--navbar-tab-number {
+    font-size: 90%;
+  }
 }
 
 
