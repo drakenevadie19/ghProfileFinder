@@ -84,6 +84,12 @@ const UserDetailsPage = () => {
         )
     }
 
+    const backToPreviousPage = () => {
+      const lastUrl = localStorage.getItem('lastVisitedUrl');
+      console.log(lastUrl);
+      window.location.href = lastUrl;
+    }
+
     return (
       <>
         <div className="find-frame" id="aboveDiv" ref={aboveDivRef}>
@@ -95,9 +101,12 @@ const UserDetailsPage = () => {
             >
               Back to Home
             </button>
-            <a className="btn btn-warning" href={document.referrer}>
+            <button
+              className="btn btn-warning"
+              onClick={() => backToPreviousPage()}
+            >
               Previous Page
-            </a>
+            </button>
           </div>
 
           <div className="user-detail-headline-wrap">
@@ -285,7 +294,7 @@ const UserDetailsPage = () => {
                 <strong>{userProfile.following}</strong>
               </p>
             </div>
-{/* ------------- */}
+            {/* ------------- */}
             {/* <div
               className="user-detail-r-f--navbar-tab"
               onClick={() => setCurrentDisplaying("Follower")}

@@ -3,6 +3,23 @@ import { useNavigate } from "react-router-dom";
 const ProfileList = ({ profiles }) => {
     const navigate = useNavigate();
 
+    // console.log();
+
+    const handleProfileClick = (login) => {
+
+        const currentURL = window.location.href;
+
+        // const otherURL = window.location.pathname + window.location.search;
+
+        // console.log("First way of URL", currentURL)
+        // console.log("Second way of URL", otherURL);
+
+        localStorage.setItem('lastVisitedUrl', currentURL);
+
+        // navigate(`/user-detail/${github.login}`)
+        navigate(`/user-detail/${login}`)
+    }
+
     return (
         <>
             <div className="display-profiles-frame">
@@ -22,7 +39,7 @@ const ProfileList = ({ profiles }) => {
                                         <h5 className="card-title">{github.login}</h5>
                                         {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
                                         <div className="card-button-groups">
-                                            <button className="btn btn-info explore-button" onClick={() => navigate(`/user-detail/${github.login}`)}>
+                                            <button className="btn btn-info explore-button" onClick={() => handleProfileClick(github.login)}>
                                                 Explore
                                             </button>
                                             <a
