@@ -84,6 +84,7 @@ const FindByName = () => {
                             className="btn btn-danger"
                             onClick={() => {
                                 navigate("/find/name");
+                                localStorage.clear();
                                 // Resets handled via useEffect
                             }}
                         >

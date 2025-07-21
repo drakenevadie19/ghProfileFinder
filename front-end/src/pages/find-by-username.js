@@ -84,6 +84,7 @@ const FindByUserName = () => {
                             className="btn btn-danger"
                             onClick={() => {
                                 navigate("/find/username");
+                                localStorage.clear();
                                 // Resets are handled in useEffect
                             }}
                         >
